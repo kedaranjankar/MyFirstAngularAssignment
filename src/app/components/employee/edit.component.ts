@@ -19,7 +19,7 @@ export class EditComponent implements OnInit {
 
   Props = {
     IsEditMode: true,
-    Title: "Edit Employees"
+    Title: "Edit Employee"
   };
 
   ngOnInit() {

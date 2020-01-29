@@ -25,7 +25,7 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.id = params.id;
-      console.log(this.id);
+      console.log(this.id + "");
     }
     );
 

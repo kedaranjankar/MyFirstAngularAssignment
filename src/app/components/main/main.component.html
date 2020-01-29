@@ -1,0 +1,7 @@
+<h1 *ngIf="this.loginService.getLoginDetails().isAdmin">
+  Welcome {{ this.loginService.getLoginDetails().loggedInUser }}
+  You are Admin
+</h1>
+<h2 *ngIf="!this.loginService.getLoginDetails().isAdmin">
+  Welcome {{ this.loginService.getLoginDetails().loggedInUser }}
+</h2>

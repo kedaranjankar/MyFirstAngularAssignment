@@ -1,0 +1,125 @@
+<div class="col-lg-8 col-md-6 col-sm-12 col-xs-1  loginform forgot regis">
+    <h2>{{props.Title}}</h2>
+    <div class="tab-content">
+        <div class="tab-pane active" id="1a">
+            <div class="row">
+                <form (ngSubmit)="onSubmit(FrmEmpTempl)" #FrmEmpTempl="ngForm">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h3>{{props.Title}}</h3>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>First Name*</label>
+                            <input type="text" class="form-control" id="Fname" name="Fname" 
+                                value="{{ employee?.first_name}}" [disabled]="!props.IsEditMode" [(ngModel)]="employee.first_name" placeholder="First Name*">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>Last Name*</label>
+                            <input type="text" class="form-control" id="Lname" name="Lname"
+                                value="{{ employee?.last_name}}" placeholder="Last Name*" ngModel [disabled]="!props.IsEditMode" [(ngModel)]="employee.last_name">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>Username*</label>
+                            <input type="text" class="form-control" id="Uname" name="Uname"  placeholder="Username*"
+                                value="{{ employee?.first_name}}" [disabled]="!props.IsEditMode" [(ngModel)]="employee.user_name">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="false">
+                        <div class="form-group">
+                            <label>Password*</label>
+                            <input type="text" type="password" class="form-control" name="Upasword"  placeholder="Password*">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label>Address*</label>
+                            <textarea placeholder="Address*" class="form-control" name="UAdd"  value="{{ employee?.address}}"
+                                [disabled]="!props.IsEditMode" [(ngModel)]="employee.address"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label>City*</label>
+                                    <input type="text" class="form-control" name="Ucity"  placeholder="City*"
+                                        value="{{ employee?.city}}" [disabled]="!props.IsEditMode"  [(ngModel)]="employee.city">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label>State*</label>
+                                    <select required id="state" name="Ustate" [(ngModel)]="employee.state" [disabled]="!props.IsEditMode"
+                                    appSelectValidator="-1" class="form-control">
+                                    <option value="-1">Select State</option>
+                                    <option *ngFor="let state of states" [value]="state.id">
+                                      {{state.name}}
+                                    </option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <label>Zip Code*</label>
+                                    <input type="text" class="form-control" name="Uzipcode" placeholder="Zip Code*"
+                                        value="{{ employee?.zip_code}}" [disabled]="!props.IsEditMode" [(ngModel)]="employee.zip_code">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label>Date Of Birth*</label>
+                                    <input type="text" class="form-control" name="Udob" [(ngModel)]="employee.dob" placeholder="DD/MM/YYYY*"
+                                        value="{{ employee?.dob}}" [disabled]="!props.IsEditMode">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label>Employee id*</label>
+                                    <input type="text" class="form-control" name="Ueid" [(ngModel)]="employee.id" placeholder="Employee id*"
+                                        value="{{ employee?.id}}" [disabled]="!props.IsEditMode">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label>Phone no.*</label>
+                                    <input type="text" class="form-control" name="UPhone" placeholder="Phone no.*"
+                                        value="{{ employee?.phone_no}}" [disabled]="!props.IsEditMode" [(ngModel)]="employee.phone_no">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label>Email id*</label>
+                                    <input type="text" class="form-control" name="Uemail" ngModel placeholder="Email id*" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required email
+                                        value="{{ employee?.email}}" [disabled]="!props.IsEditMode" [(ngModel)]="employee.email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  signbtn padding0" *ngIf="props.IsEditMode">
+                        <div class="col-lg-4 col-md-5 col-sm-4 col-xs-6">
+                            <a routerLink="/employee/view" class="login_btn">Cancel </a>
+                        </div>
+                        <div class="col-lg-4 col-md-5 col-sm-4  col-xs-6">
+                            <button type="submit" class="login_btn m-3">Save <i class="fa fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-sm-4  col-xs-6" *ngIf="!props.IsEditMode">
+                        <a type="button" class="login_btn" routerLink="/employee/view" class="">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
